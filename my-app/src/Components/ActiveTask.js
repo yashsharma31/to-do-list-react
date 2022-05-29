@@ -30,7 +30,7 @@ class TaskActive extends Component {
                         </div>
                     }
                 </div>
-                <h2 className={(this.state.click==false)?'txt actv':'txt nonactv'} >Active</h2>
+                <h2 className={(this.state.click==false)?'txt actv':'txt nonactv'} >Temp</h2>
             </div>
         )
     }
