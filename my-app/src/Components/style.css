@@ -1,0 +1,56 @@
+.heading{
+    font-size:100px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    margin: 0;
+    padding: 10px;
+    color: #ead7d7;
+}
+.App{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin: -100px;
+}
+
+.todotaskbar .form-control{
+    width: 500px;
+    height: 50px;
+    background: #fff;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+    font-style: italic;
+    color: #ead7d7;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.todotaskbar{
+    margin-top: -100px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
+    0 25px 50px 0 rgba(0, 0, 0, 0.1);
+}
+
+.tableitself{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 500px;
+    margin-top: -2px;
+    padding-top: 10px;
+    padding-left: 21px;
+    padding-right: 20px;
+    height: 50px;
+    background: #fff;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
+    0 25px 50px 0 rgba(0, 0, 0, 0.1);
+}
+.btn-btn-outline-secondary{
+    font-size: 50px;
+    padding: 200px;
+}
