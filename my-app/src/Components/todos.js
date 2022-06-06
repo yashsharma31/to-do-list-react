@@ -235,8 +235,10 @@ class Todos extends Component {
 
     checkforactiv(){
         let activetodo = [];
+        let total_todos= [];
+        total_todos = this.state.todos;
         activetodo = this.state.filteredactive;
-        if (activetodo.length==0){
+        if (activetodo.length==0 && total_todos.length!=0 ){
                 return true
         }
         else{
