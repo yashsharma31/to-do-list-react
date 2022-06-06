@@ -1,3 +1,7 @@
+body {
+    background-color: #f5f5f5;
+   }
+
 .heading{
     font-size:100px;
     font-family: Arial, Helvetica, sans-serif;
@@ -5,52 +9,179 @@
     margin: 0;
     padding: 10px;
     color: #ead7d7;
+    
 }
 .App{
     display: flex;
     justify-content: center;
     flex-direction: row;
-    margin: -100px;
+    margin-top: -100px;
 }
 
-.todotaskbar .form-control{
-    width: 500px;
+.todotaskbar-imgs{
+    padding: 20px;
+    margin-left: 5px;
+}
+
+.todotaskbar .formm{
+    margin-top: 5px;
+    width: 425px;
     height: 50px;
-    background: #fff;
     font-size: 25px;
     font-family: Arial, Helvetica, sans-serif;
     border: none;
     font-style: italic;
-    color: #ead7d7;
+    padding-right: 20px;
+    outline: none;
+}
+::placeholder{
+    color: #e6e6e6;
+}
+
+.todotaskbar{
+    display: flex;
+    margin-top: -100px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
+    0 25px 50px 0 rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.tableitself{
+    display: grid;
+    grid-template-columns: 20px 450px 20px;
+    width: 500px;
     padding-top: 10px;
-    padding-bottom: 10px;
     padding-left: 20px;
     padding-right: 20px;
+    height: 50px;
+    background: #fff;
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
 }
-.todotaskbar{
-    margin-top: -100px;
+
+.footerandtable{
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
     0 25px 50px 0 rgba(0, 0, 0, 0.1);
 }
 
-.tableitself{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 500px;
-    margin-top: -2px;
-    padding-top: 10px;
-    padding-left: 21px;
-    padding-right: 20px;
-    height: 50px;
-    background: #fff;
-    font-size: 25px;
-    font-family: Arial, Helvetica, sans-serif;
-    border: none;
+.tab2{
+    text-align: left;
+    margin-top: 5px;
+    padding-left: 30px;
+}
+
+.navsd{
+    background-color:  white;
+    width: 300px;
+    margin-top: -400px;
+    height: 1000px;
+}
+
+.tab2 input{
+    background-color: transparent;
+    border: 0;
+    color: black;
+    font-size: 22px
+}
+
+.tab2 input:focus{
+    outline: none;
+}
+
+.tab2 s{
+    font-size: 22px;
+    color: #d9d9d9;
+}
+
+.todotaskbar img{
+    width: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: -15px;
+    background-color: white;
+}
+
+.footer{
+    display: grid;
+    grid-template-columns: 140px 240px 140px;
+    justify-content: center;
+    background-color: white;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
     0 25px 50px 0 rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    font-size: 14px;
+    color: #777777;
+
 }
-.btn-btn-outline-secondary{
-    font-size: 50px;
-    padding: 200px;
+
+.decor1{
+    width: 520px;
+    height: 20px;
+    margin-top: 10px;
+    display: block;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
+    0 25px 50px 0 rgba(0, 0, 0, 0.1);
+    background-color: white;
+    margin-left: 10px;
+    z-index: 3;
+}
+.decor2{
+    width: 530px;
+    height: 20px;
+    margin-top: -25px;
+    background-color: white;
+    display: block;
+    margin-left: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
+    0 25px 50px 0 rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+.decor-outer{
+    display: flex;
+    margin-bottom: -20px;
+}
+
+.footer .left_footer{
+    display: flex;
+    justify-content: left;
+    margin: 3px;
+    padding-left: 5px ;
+}
+.footer .middle_footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.footer .right_footer{
+    display: flex;
+    justify-content: right;
+    padding-right: 5px ;
+    margin:3px;
+}
+
+.right_footer label:hover{
+    text-decoration: underline;
+    cursor: pointer;
+
+}
+
+.middle_footer label{
+    background-color: white;
+    border-radius: 3px;
+    border-color: #ead7d7;
+    border-style: solid;
+    border-width: 1px;
+    padding: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.tab3 img{
+    display: none;
+}
+
+.tab2 + .tab3 img:hover{
+    display: block;
 }
