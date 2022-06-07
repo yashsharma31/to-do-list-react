@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import "./style.css"
 import Todo from './todo';
 import AddTodo from './addtodo.js';
-import drop1 from "../assets/drop1.png"
-import drop2 from "../assets/drop2.png"
 
 class Todos extends Component {
     constructor(props){  
@@ -16,7 +14,11 @@ class Todos extends Component {
             ],
             filteredactive:[
             ],
-
+            filtersposition:{
+                allf : true,
+                activef : false,
+                completedf : false,
+            },
             countactive:0
         }
         this.lenleftitems = this.lenleftitems.bind(this);
@@ -245,8 +247,49 @@ class Todos extends Component {
                 return false
         }
     }
-    
+    clicktrue=(sts)=>{{
+        if(sts==1){
+            this.state.filtersposition.allf=true;
+            this.state.filtersposition.activef=false;
+            this.state.filtersposition.completedf=false;
+        }
+        else if(sts==2){
+            this.state.filtersposition.allf=false;
+            this.state.filtersposition.activef=true;
+            this.state.filtersposition.completedf=false;
+        }
+        else{
+            this.state.filtersposition.allf=false;
+            this.state.filtersposition.activef=false;
+            this.state.filtersposition.completedf=true;
+        }
 
+    }}
+
+    renderallbtn(){ 
+        if(this.state.filtersposition.allf){
+            return <label className='allbtn' onClick={() => {this.filterall();this.clicktrue(1)}}>All</label>
+        }
+        else{
+            return <label className='allbtn2' onClick={() => {this.filterall();this.clicktrue(1)}}>All</label>
+        }
+    } 
+    renderactivebtn(){
+        if(this.state.filtersposition.activef){
+            return <label className='allbtn' onClick={() =>{this.filternotactive();this.clicktrue(2)}}>Active</label>
+        }
+        else{
+            return <label className='allbtn2' onClick={() =>{this.filternotactive();this.clicktrue(2)}}>Active</label>
+        }
+    }
+    rendercompletedbtn(){
+        if(this.state.filtersposition.completedf){
+            return <label className='allbtn' onClick={() =>{this.filteractive();this.clicktrue(3)}}>Completed</label>
+        }
+        else{
+            return <label className='allbtn2' onClick={() => {this.filteractive();this.clicktrue(3)}}>Completed</label>
+        }
+    }
 
     renderfooter(){
         let total_todos= [];
@@ -259,9 +302,9 @@ class Todos extends Component {
                 <label >{this.state.filteredactive.length} items left </label>
                 </div>
                 <div className='middle_footer'>
-                <label className='allbtn' onClick={() => {this.filterall()}}>All </label>
-                <label className='actvbtn' onClick={() => this.filternotactive()}>Active </label>
-                <label className='cmpbtn' onClick={() => this.filteractive()}>Completed</label>
+                    {this.renderallbtn()}
+                    {this.renderactivebtn()}
+                    {this.rendercompletedbtn()}
                 </div>
                 <div className='right_footer'>
                     {
@@ -286,14 +329,10 @@ class Todos extends Component {
             
             <div className='table_style'>
             <div className="table">
-            
-                
                     <div className='todos_table'>
                         <div className="txt1table">
                             <AddTodo fooAddTodo={this.addNewTodo} addTodoValue={this.state.addTodoValue} checkall={this.checkall} uncheckall={this.uncheckall} chkforactv={this.checkforactiv}/>
                         </div>
-                        
-
                     </div>
 
                         

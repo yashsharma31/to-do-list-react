@@ -86,7 +86,7 @@ body {
 }
 
 .tab2 input:focus{
-    outline: none;
+    width: 400px;
 }
 
 .tab2 s{
@@ -170,7 +170,6 @@ body {
 .middle_footer label{
     background-color: white;
     border-radius: 3px;
-    border-color: #ead7d7;
     border-style: solid;
     border-width: 1px;
     padding: 3px;
@@ -196,4 +195,10 @@ body {
     display: block;
     width: 13px;
     padding: 10px;
+}
+.allbtn{
+    border-color: #ead7d7;
+}
+.allbtn2{
+    border-color: white;
 }

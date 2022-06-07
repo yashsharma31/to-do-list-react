@@ -61,7 +61,6 @@ class Todo extends Component {
     }
 
     handleChange = (e) => {
-        //Updating local component state
         this.setState({
             val: e.target.value
         });
