@@ -225,15 +225,6 @@ class Todos extends Component {
         
     }
 
-    clearcompi(){
-        let activetodo = [];
-        let total_todos= [];
-        activetodo = this.state.filteredactive;
-        total_todos = this.state.todos;
-        if ((total_todos.length-activetodo.length)>=1){
-            return <label  onClick={() => this.clearcomplete()}>Clear completed</label>
-        }
-    }
 
     checkforactiv(){
         let activetodo = [];
@@ -266,67 +257,11 @@ class Todos extends Component {
 
     }}
 
-    renderallbtn(){ 
-        if(this.state.filtersposition.allf){
-            return <label className='allbtn' onClick={() => {this.filterall();this.clicktrue(1)}}>All</label>
-        }
-        else{
-            return <label className='allbtn2' onClick={() => {this.filterall();this.clicktrue(1)}}>All</label>
-        }
-    } 
-    renderactivebtn(){
-        if(this.state.filtersposition.activef){
-            return <label className='allbtn' onClick={() =>{this.filternotactive();this.clicktrue(2)}}>Active</label>
-        }
-        else{
-            return <label className='allbtn2' onClick={() =>{this.filternotactive();this.clicktrue(2)}}>Active</label>
-        }
-    }
-    rendercompletedbtn(){
-        if(this.state.filtersposition.completedf){
-            return <label className='allbtn' onClick={() =>{this.filteractive();this.clicktrue(3)}}>Completed</label>
-        }
-        else{
-            return <label className='allbtn2' onClick={() => {this.filteractive();this.clicktrue(3)}}>Completed</label>
-        }
-    }
-
-    renderfooter(){
-        let total_todos= [];
-        total_todos = this.state.todos;
-        if(total_todos.length>=1){
-            return(<div className='whole-footer'>
-            <div className='decor-outer'>
-            <div className='footer'>
-                <div className='left_footer'>
-                <label >{this.state.filteredactive.length} items left </label>
-                </div>
-                <div className='middle_footer'>
-                    {this.renderallbtn()}
-                    {this.renderactivebtn()}
-                    {this.rendercompletedbtn()}
-                </div>
-                <div className='right_footer'>
-                    {
-                        this.clearcompi()
-                    }
-                
-                </div>
-                
-            </div>
-            </div>
-            
-                    <div className='decor1'></div>
-                    <div className='decor2'></div>
-            </div>
-        )}
-    }
 
 
 
     render() {
         return (
-            
             <div className='table_style'>
             <div className="table">
                     <div className='todos_table'>
@@ -348,17 +283,44 @@ class Todos extends Component {
                         
                     ))}
             </div>
-            {
-                this.renderfooter()
-            }
+            <div className={this.state.todos.length>=1 ? 'rfooter' : "rfooteroff"}>
+                <div className='whole-footer'>
+                    <div className='decor-outer'>
+                    <div className='footer'>
+                        <div className='left_footer'>
+                        <label>{this.state.filteredactive.length} items left </label>
+                        </div>
+                        <div className='middle_footer'>
+                            <label
+                                className={this.state.filtersposition.allf ? "allbtn" : "allbtn2"}
+                                onClick={() => {this.filterall();this.clicktrue(1)}}
+                                name="all"> All
+                            </label>
+                            <label
+                                className={this.state.filtersposition.activef ? "allbtn" : "allbtn2"}
+                                onClick={() => {this.filternotactive();this.clicktrue(2)}}
+                                name="pending">Active
+                            </label>
+                            <label
+                                className={this.state.filtersposition.completedf ? "allbtn" : "allbtn2"}
+                                onClick={() => {this.filteractive();this.clicktrue(3)}}
+                                name="completed">Completed
+                            </label>
+                        </div>
+                        <div className={(this.state.todos.length-this.state.filteredactive.length)>=1 ? "right_footer" : "right_footeroff"}>
+                            <label  onClick={() => this.clearcomplete()}>Clear completed</label>
+                        </div>
+                    </div>
+                    </div>
+                            <div className='decor1'></div>
+                            <div className='decor2'></div>
+                    </div>
             </div>
-                
+            </div>
                 
             </div>
             
-        );
+        )};
     }
-    
-}
 
 export default Todos;

@@ -205,3 +205,67 @@ body {
 .allbtn2:hover{
     border-color: #f7eaea;
 }
+.ffooter{
+    margin: 65px auto 0;
+    color: #bfbfbf;
+    font-size: 10px;
+    text-shadow: 0 1px 0 rgb(255 255 255 / 50%);
+    text-align: center;
+}
+.ffooter p {
+    line-height: 1;
+}
+.ffooter a{
+    text-decoration: none;
+}
+.checkbox input[type="checkbox"]{
+    display: none;
+}
+.checkbox input[type="checkbox"]:checked + .wrapper {
+    background-color: #8cde95;
+}
+.checkbox input[type="checkbox"]:checked + .wrapper .knob {
+    left: 20px;
+}
+.checkbox .wrapper {
+    background-color: #666;
+    border: 1px solid #666;
+    border-radius: 10px;
+    width: 42px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    outline: none;
+}
+.checkbox .knob {
+    background-color: white;
+    border: 1px solid #666;
+    border-radius: 100%;
+    display: inline-block;
+    margin-left: 2px;
+    position: relative;
+    width: 16px;
+    height: 16px;
+    left: 0;
+    transition: left 100ms ease-in-out 0s;
+}
+
+.rfooteroff{
+    display: none;
+}
+
+.rfooter{
+    display: block;
+}
+
+.right_footeroff{
+    display: none;
+}
+.linecutted{
+    text-decoration: line-through;
+    color: #d9d9d9;
+}
+.linecuttedoff{
+    text-decoration: none;
+}

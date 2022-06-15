@@ -56,9 +56,7 @@ class AddTodo extends Component {
                 </p></div>
             <div className="todotaskbar">
                 <div className='todotaskbar-imgs'>
-                {
-                    this.redneralltick()
-                }
+                <img src= {this.props.chkforactv()?drop2:drop1} onClick={() => {this.props.chkforactv()?this.props.uncheckall():this.props.checkall()}}></img>
                 </div>
                 <input type="text" className="formm" id="todoValue" placeholder="What needs to be done?" onChange={this.handleChange} 
                 onKeyPress={event => event.key === 'Enter' && this.addTodo()}
@@ -70,20 +68,7 @@ class AddTodo extends Component {
             </>
         );
     }
-    
-
-    redneralltick(){
-            if(this.props.chkforactv()){
-                return <img src= {drop2} onClick={() => {this.props.uncheckall(); this.IncrementItem()}}></img>
-            }
-            else{
-                return <img src= {drop1}  onClick={() => {this.props.checkall(); this.IncrementItem()}}></img>
-            }
-            
-            
-        }
-        
-    
+     
 }
 
 export default AddTodo;

@@ -11,49 +11,6 @@ class Todo extends Component {
 
     }
 
-    render() {
-        return (
-            <>
-            <div className='tableitself'>
-                <div  className="tab1">
-                    {
-                        this.renderchkbox()
-                    }
-                </div>
-                <div className='tab2'>
-                    {
-                        
-                        this.renderTodo()
-                    }
-                    
-                </div>
-                <div  className="tab3">
-                    {
-                    this.renderdeletebtn()
-                }
-                    
-                </div>
-                </div>
-                
-            </>
-            
-        );
-    }
-    renderdeletebtn(){
-        
-        return <img src= {clossee} width={12} onClick={() => this.props.fooDelete(this.props.todo.id)}></img>
-
-    }
-
-    renderchkbox(){
-        if(this.props.todo.isDone){
-        return <img src= {check1} width={30} onClick={() => this.props.fooDoneDone(this.props.todo)}></img>;
-        }
-        else{
-        return <img src= {uncheck1} width={30} onClick={() => this.props.fooDoneDone(this.props.todo)}></img>;
-        }
-    }
-
     changeEditMode=()=>{
         this.setState({
             isInEditMode: !this.state.isInEditMode
@@ -66,43 +23,48 @@ class Todo extends Component {
         });
     }
 
-    renderEditView = (id) =>{
-        return <div>
-            <input
-            type="text"
-            defaultValue={this.state.val}
-            onChange={this.handleChange}
-            onKeyPress={event => event.key === 'Enter' && this.updateComponentValue(id)}
-            />
-        </div>
+    updateComponentValue = (id) =>{
+        this.setState({
+            isInEditMode: false,
+        })
+        this.props.setUpdate(this.state.val,id)
     }
 
-    renderDefaultView= () =>{
-        return <div onDoubleClick={this.changeEditMode}>
-                    {this.props.todo.value}
+    render() {
+        return (
+            <>
+            <div className='tableitself'>
+                <div  className="tab1">
+                    <img src= {this.props.todo.isDone?check1:uncheck1} width={30} onClick={() => this.props.fooDoneDone(this.props.todo)}></img>
                 </div>
+                <div className='tab2'>
+                    <label className={this.props.todo.isDone?'linecutted':'linecuttedoff'}>
+                        {
+                        this.isInEditMode ? 
+                            <input
+                                type="text"
+                                defaultValue={this.val}
+                                onChange={this.handleChange}
+                                onKeyPress={event => event.key === 'Enter' && this.updateComponentValue(this.props.todo.id)}
+                            />
+                            :
+                            <div onDoubleClick={this.changeEditMode}>
+                                {this.props.todo.value}
+                            </div>
+                        }
+                    </label>
+                    
+                </div>
+                <div  className="tab3">
+                    <img src= {clossee} width={12} onClick={() =>this.props.fooDelete(this.props.todo.id)}></img>
+                    
+                </div>
+                </div>
+                
+            </>
+            
+        );
     }
-
-
-    renderTodo(){
-        if(this.props.todo.isDone)
-        return <s className='linecutted'>{this.state.isInEditMode ? 
-        this.renderEditView(this.props.todo.id):
-        this.renderDefaultView()
-        }</s>;
-
-        else
-        return this.state.isInEditMode ? 
-        this.renderEditView(this.props.todo.id):
-        this.renderDefaultView()
-        }
-    
-        updateComponentValue = (id) =>{
-            this.setState({
-                isInEditMode: false,
-            })
-            this.props.setUpdate(this.state.val,id)
-        }
 
 
 }
